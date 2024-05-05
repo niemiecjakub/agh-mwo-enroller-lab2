@@ -35,4 +35,16 @@ public class MeetingService {
 		return meeting;
 
 	}
+
+	public void update(Meeting meeting) {
+		Transaction transaction = this.session.beginTransaction();
+		this.session.getSession().merge(meeting);
+		transaction.commit();
+	}
+
+	public void delete(Meeting meeting) {
+		Transaction transaction = this.session.beginTransaction();
+		this.session.getSession().delete(meeting);
+		transaction.commit();
+	}
 }
