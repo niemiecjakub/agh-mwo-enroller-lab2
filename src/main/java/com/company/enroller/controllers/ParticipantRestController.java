@@ -50,7 +50,6 @@ public class ParticipantRestController {
 
 		String hashedPassword = passwordEncoder.encode(participant.getPassword());
 		participant.setPassword(hashedPassword);
-
 		participantService.add(participant);
 		return new ResponseEntity<Participant>(participant, HttpStatus.CREATED);
 	}
@@ -75,5 +74,4 @@ public class ParticipantRestController {
 		participantService.update(participant);
 		return new ResponseEntity<Participant>(HttpStatus.OK);
 	}
-
 }
